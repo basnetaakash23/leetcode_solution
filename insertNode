@@ -15,22 +15,28 @@ Node InsertNth(Node head, int data, int position) {
     Node current = head;
     Node new_node = new Node();
     new_node.data = data;
-    if(current==null){
-        current = new_node;
+    if(head==null){
+       head = new_node;
+       return head;
     }
     
-    while(current_position !=position -1){
-        current = current.next;
-        System.out.println(current_position);
+    if(position == 0){
+        new_node.next = head;
+        return new_node;
+    }
+    
+    while(current_position !=position -1 && head.next!=null){
+        head = head.next;
+        //System.out.println(current_position);
         current_position=current_position+1;
         
     }
-    Node nodetoreplace = current.next;
-    current.next = new_node;
-    current = current.next;
-    current.next = nodetoreplace;
+    Node nodetoreplace = head.next;
+    head.next = new_node;
+    head = head.next;
+    head.next = nodetoreplace;
     
     
-    return head;
+    return current;
     
 }
