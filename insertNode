@@ -1,0 +1,36 @@
+/*
+  Insert Node at a given position in a linked list 
+  head can be NULL 
+  First element in the linked list is at position 0
+  Node is defined as 
+  class Node {
+     int data;
+     Node next;
+  }
+*/
+Node InsertNth(Node head, int data, int position) {
+   // This is a "method-only" submission. 
+    // You only need to complete this method. 
+    int current_position = 0;
+    Node current = head;
+    Node new_node = new Node();
+    new_node.data = data;
+    if(current==null){
+        current = new_node;
+    }
+    
+    while(current_position !=position -1){
+        current = current.next;
+        System.out.println(current_position);
+        current_position=current_position+1;
+        
+    }
+    Node nodetoreplace = current.next;
+    current.next = new_node;
+    current = current.next;
+    current.next = nodetoreplace;
+    
+    
+    return head;
+    
+}
